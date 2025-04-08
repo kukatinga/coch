@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christopher | Visionary Real Estate Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --platinum: #E5E4E2;
+            --onyx: #0A0A0A;
+            --ivory: #FFFFF0;
+            --sapphire: #0F52BA;
+            --font-main: 'Montserrat', sans-serif;
+            --font-decorative: 'Playfair Display', serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--ivory);
+            color: var(--onyx);
+            overflow-x: hidden;
+        }
+        
+        .luxury-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 40px 10%;
+            opacity: 0.5;
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--onyx);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid var(--gold);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Header */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: var(--ivory);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            max-width: 600px;
+            z-index: 2;
+        }
+        
+        .header-bg-text {
+            position: absolute;
+            font-size: 25vw;
+            font-weight: 700;
+            color: rgba(212, 175, 55, 0.03);
+            bottom: -10%;
+            right: -5%;
+            font-family: var(--font-decorative);
+            user-select: none;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-family: var(--font-decorative);
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--gold), var(--platinum));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        .header-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .signature {
+            font-family: 'Parisienne', cursive;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-top: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .main-nav.scrolled {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 1rem 5%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-logo {
+            font-family: var(--font-decorative);
+            font-size: 1.8rem;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 3rem;
+        }
+        
+        .nav-links a {
+            color: var(--ivory);
+            text-decoration: none;
+            font-weight: 300;
+            letter-spacing: 1px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Sections */
+        section {
+            padding: 8rem 10%;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: var(--font-decorative);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 5rem;
+            color: var(--onyx);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1rem auto 0;
+        }
+        
+        /* Profile Section */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+        
+        .profile-image {
+            flex: 1;
+            min-width: 400px;
+            height: 600px;
+            background: url('https://images.unsplash.com/photo-1583864697784-a0efc8379f70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80') no-repeat center center/cover;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            z-index: -1;
+        }
+        
+        .profile-content {
+            flex: 1;
+        }
+        
+        .profile-content h2 {
+            font-family: var(--font-decorative);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--onyx);
+        }
+        
+        .profile-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--gold);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--onyx);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            top: 20px;
+        }
+        
+        .left .timeline-content::before {
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+            right: -10px;
+        }
+        
+        .right .timeline-content::before {
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+            left: -10px;
+        }
+        
+        .timeline-date {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-decorative);
+        }
+        
+        .timeline-desc {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .timeline-achievements {
+            list-style: none;
+        }
+        
+        .timeline-achievements li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .timeline-achievements li::before {
+            content: '•';
+            color: var(--gold);
+            position: absolute;
+            left: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10, 10, 10, 0.9));
+            padding: 2rem;
+            color: white;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-decorative);
+        }
+        
+        .project-location {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .project-desc {
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        /* Board Memberships */
+        .boards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .board-card {
+            background: white;
+            width: 250px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .board-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .board-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .board-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .board-role {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Philanthropy */
+        .philanthropy-container {
+            background: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            padding: 6rem;
+            position: relative;
+            color: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .philanthropy-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.7);
+        }
+        
+        .philanthropy-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .philanthropy-title {
+            font-family: var(--font-decorative);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+        }
+        
+        .philanthropy-desc {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* Awards */
+        .awards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .award-card {
+            background: white;
+            width: 300px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gold);
+        }
+        
+        .award-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .award-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-decorative);
+        }
+        
+        .award-year {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .award-desc {
+            line-height: 1.6;
+        }
+        
+        /* Contact */
+        .contact-container {
+            display: flex;
+            gap: 5rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-family: var(--font-decorative);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--onyx);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-text p {
+            color: #666;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: var(--font-main);
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--gold);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            background: var(--onyx);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--onyx);
+            color: white;
+            padding: 5rem 10%;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-decorative);
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0.5rem;
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--onyx);
+        }
+        
+        .copyright {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .timeline::after {
+                left: 50px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 40px;
+            }
+            
+            .left::after, .right::after {
+                left: 40px;
+            }
+            
+            .right {
+                left: 0;
+            }
+            
+            .left .timeline-content::before, .right .timeline-content::before {
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+                left: auto;
+                right: -10px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .profile-container {
+                flex-direction: column;
+            }
+            
+            .profile-image {
+                min-width: 100%;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            .header-tagline {
+                font-size: 1.2rem;
+            }
+            
+            .main-nav {
+                padding: 1.5rem 5%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <a href="#" class="nav-logo">Christopher</a>
+        <ul class="nav-links">
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#boards">Leadership</a></li>
+            <li><a href="#philanthropy">Philanthropy</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>Christopher</h1>
+            <p class="header-tagline">Visionary Real Estate Guru | Global Developer | Transformational Leader</p>
+            <div class="signature">Ochieng</div>
+        </div>
+        <div class="header-bg-text">C</div>
+    </header>
+    
+    <!-- Profile Section -->
+    <section id="profile">
+        <h2 class="section-title">The Visionary</h2>
+        <div class="profile-container">
+            <div class="profile-image"></div>
+            <div class="profile-content">
+                <h2>Creating Landmarks That Define Cities</h2>
+                <p><span class="highlight">Civil engineer</span> by training and <span class="highlight">C-Level executive</span> with over 16 years at the pinnacle of real estate development. My journey from contractor to consultant to developer has given me unparalleled insight into every facet of the built environment.</p>
+                <p>With <span class="highlight">18+ years shaping skylines across three continents</span>, I specialize in master-planning mixed-use megaprojects, satellite cities, and urban regeneration nodes that transform regions. My developments don't just create buildings—they catalyze economic ecosystems.</p>
+                <p>From the <span class="highlight">Dubai World Trade Centre</span> to Nairobi's <span class="highlight">Two Rivers</span> to the emerging <span class="highlight">Buxton Point</span>, my portfolio represents over <span class="highlight">$2 billion</span> in developed real estate assets across the Middle East and Africa.</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="luxury-divider"></div>
+    
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">The Journey</h2>
+        <div class="timeline">
+            <!-- MENA Experience -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">2005 - 2010</div>
+                    <h3 class="timeline-title">Middle East Ascendancy</h3>
+                    <p class="timeline-desc">Pioneered landmark developments that shaped Dubai's explosive growth</p>
+                    <ul class="timeline-achievements">
+                        <li>Dubai World Trade Centre - Development Director</li>
+                        <li>International City - Project Lead</li>
+                        <li>Dubai Sports City - Senior Development Manager</li>
+                        <li>Structured $500M+ in project financing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Athena Properties -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">2010 - 2016</div>
+                    <h3 class="timeline-title">Athena Properties | Centum RE</h3>
+                    <p class="timeline-desc">Founded and scaled Centum's real estate subsidiary into a regional powerhouse</p>
+                    <ul class="timeline-achievements">
+                        <li>Two Rivers Development (Nairobi's premier mixed-use enclave)</li>
+                        <li>Two Rivers Mall (East Africa's largest retail destination)</li>
+                        <li>Vipingo Developments (Coastal luxury residences)</li>
+                        <li>Pearl Marina (Uganda's premier waterfront community)</li>
+                        <li>Secured $130M in international investment</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Rendeavour -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">2016 - 2019</div>
+                    <h3 class="timeline-title">Rendeavour | Tatu City</h3>
+                    <p class="timeline-desc">Led Africa's largest private urban development initiative</p>
+                    <ul class="timeline-achievements">
+                        <li>5,000-acre Tatu City master development</li>
+                        <li>Established industrial park with CDC/UK investment</li>
+                        <li>Attracted international education partners</li>
+                        <li>Oversaw pan-African development portfolio</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Current Ventures -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">2019 - Present</div>
+                    <h3 class="timeline-title">GulfCAP Real Estate</h3>
+                    <p class="timeline-desc">Creating the next generation of transformative communities</p>
+                    <ul class="timeline-achievements">
+                        <li>Buxton Point - Modern affordable housing</li>
+                        <li>Starehe Point - Urban regeneration project</li>
+                        <li>InCity Suites - Premium urban living</li>
+                        <li>LV Marina - Waterfront luxury development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="luxury-divider"></div>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Signature Development</h2>
+        <div class="projects-grid">
+            <!-- Two Rivers -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Two Rivers Development" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Two Rivers</h3>
+                    <span class="project-location">Nairobi, Kenya</span>
+                    <p class="project-desc">East Africa's premier mixed-use development featuring the region's largest mall, luxury residences, corporate park, and diplomatic enclave.</p>
+                </div>
+            </div>
+            
+            <!-- Tatu City -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tatu City" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Tatu City</h3>
+                    <span class="project-location">Ruiru, Kenya</span>
+                    <p class="project-desc">5,000-acre new city development with residential neighborhoods, schools, business park, and industrial zone.</p>
+                </div>
+            </div>
+            
+            <!-- Pearl Marina -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Pearl Marina" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Pearl Marina</h3>
+                    <span class="project-location">Entebbe, Uganda</span>
+                    <p class="project-desc">Luxury waterfront community on Lake Victoria featuring private marina, golf course, and bespoke villas.</p>
+                </div>
+            </div>
+            
+            <!-- Buxton Point -->
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Buxton Point" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Buxton Point</h3>
+                    <span class="project-location">Nairobi, Kenya</span>
+                    <p class="project-desc">Transformational affordable housing development setting new standards for urban living.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="luxury-divider"></div>
+    
+    <!-- Board Memberships -->
+    <section id="boards">
+        <h2 class="section-title">Strategic Leadership</h2>
+        <div class="boards-container">
+            <!-- Mizizi -->
+            <div class="board-card">
+                <div class="board-icon"><i class="fas fa-microchip"></i></div>
+                <h3 class="board-name">Mizizi Technologies</h3>
+                <div class="board-role">Board Member</div>
+                <p>Guiding Africa's next-generation tech solutions provider</p>
+            </div>
+            
+            <!-- Mteja -->
+            <div class="board-card">
+                <div class="board-icon"><i class="fas fa-money-bill-wave"></i></div>
+                <h3 class="board-name">Mteja</h3>
+                <div class="board-role">Board Advisor</div>
+                <p>Shaping the future of African fintech innovation</p>
+            </div>
+            
+            <!-- Angaza -->
+            <div class="board-card">
+                <div class="board-icon"><i class="fas fa-tractor"></i></div>
+                <h3 class="board-name">Angaza Group</h3>
+                <div class="board-role">Chairman</div>
+                <p>Transforming agricultural production and processing</p>
+            </div>
+            
+            <!-- AcaKoro -->
+            <div class="board-card">
+                <div class="board-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="board-name">AcaKoro Academy</h3>
+                <div class="board-role">Trustee</div>
+                <p>Advancing education welfare initiatives</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="luxury-divider"></div>
+    
+    <!-- Philanthropy -->
+    <section id="philanthropy">
+        <div class="philanthropy-container">
+            <div class="philanthropy-content">
+                <h2 class="philanthropy-title">Giving Back</h2>
+                <p class="philanthropy-desc">Through the Forever Footsteps Foundation, we empower youth through education, healthcare, and creative arts programs. Our sports academies have nurtured over 500 young talents, while our scholarship programs have transformed lives in underserved communities.</p>
+                <p class="philanthropy-desc">We believe sustainable development must uplift all members of society. Each of our commercial developments includes dedicated social impact initiatives tailored to local needs.</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="luxury-divider"></div>
+    
+    <!-- Awards -->
+    <section>
+        <h2 class="section-title">Accolades</h2>
+        <div class="awards-container">
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                <h3 class="award-name">Men Impacting Business Award</h3>
+                <div class="award-year">2017</div>
+                <p class="award-desc">Recognized for transformational leadership in African real estate development and economic impact.</p>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="award-name">AFLI/Oxford Tutu Fellow</h3>
+                <div class="award-year">2015</div>
+                <p class="award-desc">Selected for prestigious leadership program at Oxford University for Africa's emerging leaders.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section id="contact">
+        <h2 class="section-title">Connect</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Strategic Inquiries</h3>
+                
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>chris@domain.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Office</h4>
+                        <p>+254 700 000000</p>
+                    </div>
+                </div>
+                
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Headquarters</h4>
+                        <p>Two Rivers Office Park, Nairobi</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <a href="#" class="footer-logo">Christopher</a>
+        
+        <div class="footer-links">
+            <a href="#profile">Profile</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#boards">Leadership</a>
+            <a href="#philanthropy">Philanthropy</a>
+            <a href="#contact">Contact</a>
+        </div>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        
+        <p class="copyright">&copy; 2023 Christopher. All Rights Reserved. Crafted with Excellence.</p>
+    </footer>
+    
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('fade-out');
+            
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
